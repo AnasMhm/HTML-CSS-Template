@@ -1,0 +1,481 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "work sans", sans-serif;
+}
+
+:root {
+    --pad: 60px;
+    --main-color: #10cab7;
+    --secondary-color: #f6f6f6;
+    --third-color: #2c4755;
+    --duration: 0.3s
+}
+
+.container {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.big-text {
+    text-align: center;
+    padding-bottom: var(--pad);
+}
+
+.big-text h2 {
+    text-transform: capitalize;
+    margin: 0;
+    font-size: 5.5rem;
+    font-weight: 800;
+    position: relative;
+    color: #eee;
+}
+
+.big-text p {
+    margin: 0;
+    position: relative;
+    color: #777;
+    top: -25px;
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+
+    .about .container .all .image::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        background-color: #ebeced;
+        width: 100px;
+        height: calc(100% + 80px);
+        top: -40px;
+        left: -25px;
+    }
+
+    .about .container .all .image::after {
+        content: "";
+        position: absolute;
+        width: 120px;
+        height: 300px;
+        border-left: 80px solid var(--main-color);
+        border-bottom: 80px solid var(--main-color);
+        right: -150px;
+        top: -80px;
+        z-index: -1;
+    }
+}
+
+@media (min-width:1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+@media (max-width: 991px) {
+    .services .container .columns .image img {
+        display: none;
+        border-style: none;
+    }
+
+    .services .container .columns .image::before {
+        display: none;
+    }
+
+    .about .all .image {
+        margin: 0 auto 60px;
+    }
+
+    .about .all {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .services .container .columns .col .child {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.header {
+    padding: 20px;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .container img {
+    width: 70px;
+}
+
+.header .container .three-lines {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 30px;
+}
+
+.header .container .three-lines span {
+    width: 100%;
+    background-color: #333;
+    height: 1.5px;
+    transition: var(--duration);
+}
+
+.header .container .three-lines span:nth-of-type(2) {
+    width: 50%;
+}
+
+.header .container .three-lines span:not(:last-of-type) {
+    margin-bottom: 6px;
+}
+
+.header .container .links:hover .three-lines span:nth-of-type(2) {
+    width: 100%;
+}
+
+.header .container .links {
+    position: relative;
+}
+
+.header .container .links ul {
+    position: absolute;
+    list-style-type: none;
+    background-color: var(--secondary-color);
+    padding: 0;
+    margin: 0;
+    width: 200px;
+    top: 35px;
+    right: 0;
+    display: none;
+    transition: var(--duration);
+    z-index: 1;
+}
+
+.header .container .links:hover ul {
+    display: block;
+}
+
+.header .container .links ul::before {
+    content: "";
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent var(--secondary-color) transparent;
+    top: -20px;
+    right: 5px;
+}
+
+.header .container .links ul li a {
+    text-decoration: none;
+    color: #333;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    text-transform: capitalize;
+    display: block;
+    padding: 15px;
+}
+
+.header .container .links ul li:not(:last-child) {
+    border-bottom: 2px solid #ddd;
+}
+
+.header .container .links ul li {
+    transition: var(--duration)
+}
+
+.header .container .links ul li:hover {
+    padding-left: 15px;
+}
+
+.landing {
+    background-image: url(../images/landing.jpg);
+    height: calc(100vh - 68px);
+    background-size: cover;
+    position: relative;
+}
+
+.landing .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    text-align: center;
+}
+
+.landing .text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-weight: 400;
+    color: #333;
+}
+
+.landing .text p::first-letter {
+    text-transform: capitalize;
+}
+
+.landing h3 {
+    font-weight: 800;
+    margin: 0;
+    text-transform: capitalize;
+    color: var(--main-color);
+    font-size: 3rem;
+}
+
+.info {
+    background-color: var(--secondary-color);
+    padding-top: var(--pad);
+    padding-bottom: var(--pad);
+}
+
+.info .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.info .col {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.info .col h3::first-letter {
+    text-transform: capitalize;
+}
+
+.info .col p {
+    color: #777;
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+.info .col i {
+    color: var(--main-color);
+    margin-bottom: 10px;
+    font-size: 50px;
+}
+
+/**/
+.services {
+    padding-top: var(--pad);
+    padding-bottom: var(--pad);
+}
+
+.services .container .columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.services .container .columns .col .child {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.services .container .col .child i {
+    color: var(--main-color);
+    flex-basis: var(--pad);
+}
+
+.services .container .col .child h3 {
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.services .container .col .child p {
+    color: #777;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+.services .container .columns .col .child .text {
+    flex: 1;
+}
+
+.services .container .columns .image {
+    text-align: center;
+    position: relative;
+}
+
+.services .container .columns .image img {
+    width: 260px;
+}
+
+.services .container .columns .image::before {
+    content: "";
+    position: absolute;
+    background-color: var(--third-color);
+    width: 80px;
+    height: calc(100% + 80px);
+    right: 10px;
+    top: -40px;
+    z-index: -1;
+}
+
+.portfilio {
+    padding-top: var(--pad);
+    padding-bottom: var(--pad);
+    background-color: var(--secondary-color);
+}
+
+.portfilio .container .columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.portfilio .container .columns .col img {
+    width: 100%;
+}
+
+.portfilio .container .columns .col {
+    background-color: white;
+}
+
+.portfilio .container .columns .col .text {
+    padding-left: 10px;
+}
+
+.portfilio .container .columns .col .text p {
+    color: #777;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.portfilio .container .columns .col .text p::first-letter {
+    text-transform: capitalize;
+}
+
+.portfilio .container .columns .col h3 {
+    text-transform: capitalize;
+}
+
+.about {
+    padding-top: var(--pad);
+    padding-bottom: var(--pad);
+}
+
+.about .container .all {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about .container .all img {
+    width: 220px;
+}
+
+.about .container .all .image {
+    position: relative;
+}
+
+.about .container .all .text {
+    flex-basis: calc(100% - 500px);
+    font-size: 15px;
+}
+
+.about .container .all .text p {
+    line-height: 1.8;
+}
+
+.about .container .all .text p:first-of-type {
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.about .container .all .text p:last-of-type {
+    color: #777;
+    margin-top: 30px;
+}
+
+.about .container .all .text hr {
+    border-color: var(--main-color);
+    width: 50%;
+    display: inline-block;
+}
+
+.contact {
+    padding-top: var(--pad);
+    padding-bottom: var(--pad);
+    background-color: var(--secondary-color);
+}
+
+.contact .container .text {
+    padding-bottom: var(--pad);
+    text-align: center;
+}
+
+.contact .container .text .title::first-letter {
+    text-transform: capitalize;
+}
+
+.contact .container .text .title {
+    margin: 15px 0;
+    color: var(--third-color);
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+.contact .container .text a {
+    text-decoration: none;
+    display: block;
+    font-weight: 800;
+    color: var(--main-color);
+    font-size: 30px;
+    margin: 15px 0;
+}
+
+.contact .container .text div {
+    color: var(--third-color);
+    margin: 15px 0;
+}
+
+.contact .container .text div i {
+    margin-left: 5px
+}
+
+.cr {
+    padding: 20px;
+    background-color: var(--third-color);
+}
+
+.cr .container .text {
+    text-align: center;
+    color: white;
+    text-transform: capitalize;
+}
+
+.cr .container .text i {
+    font-size: 12px;
+}
+
+.cr .container .text span {
+    color: var(--main-color);
+    font-weight: bold;
+}
